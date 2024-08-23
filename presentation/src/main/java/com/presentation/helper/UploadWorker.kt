@@ -27,8 +27,6 @@ class UploadWorker @AssistedInject constructor(
 
     override suspend fun doWork(): Result {
 
-
-
         runSavedExchangeRateLocalUseCase.execute(Unit) {
             onSuccess = {
                 it?.let { list ->
@@ -37,11 +35,7 @@ class UploadWorker @AssistedInject constructor(
             }
         }
 
-        println("doWorker 1 ${dataBaseList.size}")
-
         for (warningExchangeSavedLocalDto in dataBaseList) {
-
-            println("Test do work for 2")
 
             getExchangeCurrencyRemoteUseCase.execute(
                 params = GetExchangeCurrencyRemoteUseCase.Params(
@@ -51,33 +45,29 @@ class UploadWorker @AssistedInject constructor(
                 )
             ) {
                 onSuccess = {
-                    println("Test do work 3")
                     it?.let { convertedAmount ->
                         nowExchangeCurrencyAmount = convertedAmount.toDouble()
                     }
                 }
             }
 
-            println("now amount ${nowExchangeCurrencyAmount}")
-
-
-            return if (nowExchangeCurrencyAmount > (warningExchangeSavedLocalDto.maxAmount
+            if (nowExchangeCurrencyAmount > (warningExchangeSavedLocalDto.maxAmount
                     ?: 0.0) || nowExchangeCurrencyAmount > (warningExchangeSavedLocalDto.maxAmount
                     ?: 0.0)
             ) {
-                println("Test do work 4")
                 activity?.let {
-                    println("Test do work 5")
-                    AlertNotificationService.sendNotification(it, "Başlık", "Mesaj içeriği")
+                    AlertNotificationService.sendNotification(
+                        it, "Rate limit", "limit exceeded:" +
+                                "New Rate Amount ${nowExchangeCurrencyAmount}" +
+                                "Min Amount ${warningExchangeSavedLocalDto.minAmount}" +
+                                "Min Amount ${warningExchangeSavedLocalDto.maxAmount}"
+                    )
+
                 }
-                Result.success()
-            } else {
-                println("else")
-                Result.failure()
             }
 
         }
 
-        return Result.failure()
+        return Result.success()
     }
 }

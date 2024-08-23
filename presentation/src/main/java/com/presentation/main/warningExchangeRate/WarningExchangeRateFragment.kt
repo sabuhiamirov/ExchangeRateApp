@@ -56,7 +56,6 @@ class WarningExchangeRateFragment :
         when (effect) {
             WarningExchangeViewModelEffect.GetCurrencyListQuotesError -> {
 
-
                 val constraints = Constraints.Builder()
                     .setRequiredNetworkType(NetworkType.CONNECTED)
                     .setRequiresCharging(false)
@@ -70,7 +69,6 @@ class WarningExchangeRateFragment :
                     .setConstraints(constraints)
                     .build()
 
-                println(" fragment effect instance worker")
                 WorkManager.getInstance(requireActivity()).enqueue(myWorkRequest)
 
             }

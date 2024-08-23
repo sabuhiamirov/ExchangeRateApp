@@ -23,7 +23,6 @@ class WarningExchangeRateViewModel @Inject constructor(
             )
         ) {
             onSuccess = {
-                println("On Success")
                 postEffect(WarningExchangeViewModelEffect.GetCurrencyListQuotesError)
             }
         }

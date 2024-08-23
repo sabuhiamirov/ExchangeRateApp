@@ -2,15 +2,20 @@ package com.exchangerateapp.di
 
 import android.app.Application
 import android.content.Context
+import androidx.hilt.work.WorkerAssistedFactory
+import androidx.work.ListenableWorker
 import com.data.remote.interceptor.RequestParamInterceptorImpl
 import com.data.utils.BigDecimalDefaultScaleDeserializer
 import com.exchangerateapp.BuildConfig
 import com.exchangerateapp.ExchangeRateApp
 import com.google.gson.GsonBuilder
+import com.presentation.helper.UploadWorker
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoMap
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -23,6 +28,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+
+
+
 
     @Provides
     fun provideActivity() = ExchangeRateApp()
