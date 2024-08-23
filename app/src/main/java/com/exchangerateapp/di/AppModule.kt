@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.data.remote.interceptor.RequestParamInterceptorImpl
 import com.data.utils.BigDecimalDefaultScaleDeserializer
+import com.exchangerateapp.BuildConfig
 import com.exchangerateapp.ExchangeRateApp
 import com.google.gson.GsonBuilder
 import dagger.Module

@@ -1,6 +1,6 @@
 [versions]
 agp = "8.5.0"
-kotlin = "1.9.0"
+kotlin = "1.8.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -24,6 +24,9 @@ navigation = "2.7.7"
 accompanistFlowlayout = "0.17.0"
 navSafeArgs = "2.5.0"
 tedPermission = "3.3.0"
+neenbedankt = "1.8"
+dataBindingCompiler = "3.1.4"
+guava = "27.0.1-android"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -71,6 +74,11 @@ work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "w
 
 
 ted-permission = { module = "io.github.ParkSangGwon:tedpermission-normal", version.ref = "tedPermission" }
+
+neenbedankt = { module = "com.neenbedankt.gradle.plugins:android-apt", version.ref = "neenbedankt" }
+
+data-bingind-compiler = { module = "com.android.databinding:compiler", version.ref = "dataBindingCompiler" }
+guava= { module = "com.google.guava:guava", version.ref = "guava" }
 
 
 

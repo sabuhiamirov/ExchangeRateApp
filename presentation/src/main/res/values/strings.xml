@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">presentation</string>
+    <string name="app_name">ExchangeApp</string>
+    <string name="convert_txt">Convert</string>
+    <string name="warning_exchange_rates">Warning by exchange rates</string>
+    <string name="min_amount">Min amount</string>
+    <string name="max_amount">Max amount</string>
+    <string name="permission_required_notification">Allow notifications, be the first to know about updates!</string>
 </resources>

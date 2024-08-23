@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.presentation.main.exchangeRate.ExchangeRateFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="20sp"
+        android:paddingVertical="20sp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10sp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="10sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_current_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Currency"
+                    android:inputType="none"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.presentation.helper.views.AmountEditTextView
+                android:id="@+id/etv_current_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10sp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="10sp"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_exchange_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Currency"
+                    android:inputType="none"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtv_exchanged_amount"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="0"
+                android:inputType="text"
+                android:background="@color/white"
+                android:letterSpacing="0.01"
+                android:lineHeight="51sp"
+                android:maxLength="10"
+                android:paddingHorizontal="10sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/light_400"
+                android:textSize="34sp"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_convert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:minHeight="56dp"
+            android:gravity="center"
+            android:padding="16sp"
+            android:singleLine="true"
+            android:letterSpacing="0.05"
+            app:cornerRadius="12sp"
+            android:textSize="16sp"
+            android:text="@string/convert_txt"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:minHeight="56dp"
+            android:gravity="center"
+            android:padding="16sp"
+            android:singleLine="true"
+            android:letterSpacing="0.05"
+            app:cornerRadius="12sp"
+            android:textSize="16sp"
+            android:text="@string/warning_exchange_rates"
+            />
+
+    </LinearLayout>
+
+
+</layout>
