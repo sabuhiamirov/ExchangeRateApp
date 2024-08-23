@@ -30,7 +30,7 @@ import javax.inject.Singleton
 object AppModule {
 
 
-
+  // The endpoints have limited access, allowing only 10 requests per hour.
 
 
     @Provides
